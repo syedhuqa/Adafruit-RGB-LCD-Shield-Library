@@ -67,7 +67,7 @@
 
 class Adafruit_RGBLCDShield : public Print {
 public:
-  Adafruit_RGBLCDShield();
+  Adafruit_RGBLCDShield(uint8_t i2caddr);
 
   void init(uint8_t fourbitmode, uint8_t rs, uint8_t rw, uint8_t enable,
 	    uint8_t d0, uint8_t d1, uint8_t d2, uint8_t d3,

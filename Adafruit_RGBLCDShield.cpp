@@ -51,8 +51,8 @@
 // can't assume that its in that state when a sketch starts (and the
 // RGBLCDShield constructor is called).
 
-Adafruit_RGBLCDShield::Adafruit_RGBLCDShield() {
-  _i2cAddr = 0;
+Adafruit_RGBLCDShield::Adafruit_RGBLCDShield(uint8_t i2caddr) {
+  _i2cAddr = i2caddr;
 
   _displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
   
@@ -116,7 +116,7 @@ void Adafruit_RGBLCDShield::begin(uint8_t cols, uint8_t lines, uint8_t dotsize) 
   if (_i2cAddr != 255) {
     //_i2c.begin(_i2cAddr);
     WIRE.begin();
-    _i2c.begin();
+    _i2c.begin(_i2cAddr);
 
     _i2c.pinMode(8, OUTPUT);
     _i2c.pinMode(6, OUTPUT);
